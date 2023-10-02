@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>HRPC</title>
+    <meta name="description" content="High Run Poker Club">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, 
+  maximum-scale=1.0, minimum-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <link rel="stylesheet" href="css/tab.min.css">
+    <link rel="stylesheet" href="css/fontAwesome.css">
+    <link rel="stylesheet" href="css/hero-slider.css">
+    <link rel="stylesheet" href="css/hrpc.css">
+    <link rel="stylesheet" href="css/hrpc2.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;700;900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Do+Hyeon&family=Gugi&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Roboto&family=Russo+One&family=Sawarabi+Mincho&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Fredoka+One&display=swap" rel="stylesheet">
+
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon" sizes="16x16">
+    <!--<script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
+    <script src="js/block.js"></script>
+
+
+</head>
+
+<body>
+    <div class="header">
+        <div class=>
+            <nav class="navbar navbar-inverse" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse"
+                        data-target="#main-nav">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                    <a class="navbar-logo" href="">
+                        <img src="img/logo-eyes-top.PNG" alt="HIGH RUN POKER CLUB" style="width:80px; height:80px;">
+                    </a>
+                </div>
+                <!--/.navbar-header-->
+                <div id="main-nav" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#" class="scroll-link" data-id="mint-page">MINT</a></li>
+                        <li><a href="#" class="scroll-link" data-id="schedule">SCHEDULE</a></li>
+                        <li><a href="#" class="scroll-link" data-id="faq">FAQ</a></li>
+                        <li><a href="#" class="scroll-link" data-id="team">TEAM</a></li>
+
+
+                        <li><a class="Header_media_link" href="https://opensea.io/collection/highrunpokerclub" target="_blank"
+                                rel="noopener noreferrer" style="margin-top: 8px;"><svg width="25" height="25"
+                                    viewBox="0 0 30 30" fill="none">
+                                    <path
+                                        d="M15 0C6.72 0 0 6.72 0 15C0 23.28 6.72 30 15 30C23.28 30 30 23.28 30 15C30 6.72 23.28 0 15 0ZM7.41 15.51L7.47 15.42L11.37 9.33C11.43 9.24 11.55 9.24 11.61 9.36C12.27 10.83 12.81 12.63 12.57 13.77C12.45 14.25 12.15 14.88 11.79 15.45C11.76 15.54 11.7 15.63 11.64 15.69C11.61 15.72 11.58 15.75 11.52 15.75H7.5C7.41 15.72 7.35 15.6 7.41 15.51ZM24.78 17.61C24.78 17.67 24.75 17.7 24.69 17.73C24.39 17.85 23.34 18.33 22.92 18.93C21.81 20.46 20.97 22.65 19.11 22.65H11.31C8.55 22.65 6.3 20.4 6.3 17.61V17.52C6.3 17.46 6.36 17.4 6.42 17.4H10.8C10.89 17.4 10.95 17.49 10.95 17.55C10.92 17.82 10.98 18.12 11.1 18.39C11.37 18.93 11.91 19.23 12.48 19.23H14.64V17.55H12.51C12.39 17.55 12.33 17.43 12.39 17.34C12.42 17.31 12.45 17.28 12.48 17.22C12.69 16.92 12.96 16.5 13.26 15.99C13.47 15.66 13.65 15.27 13.8 14.91C13.83 14.85 13.86 14.79 13.89 14.7C13.92 14.58 13.98 14.46 14.01 14.37C14.04 14.28 14.07 14.19 14.1 14.1C14.16 13.8 14.19 13.47 14.19 13.11C14.19 12.99 14.19 12.84 14.16 12.69C14.16 12.54 14.13 12.39 14.13 12.24C14.13 12.12 14.1 11.97 14.07 11.85C14.04 11.64 14.01 11.46 13.95 11.25L13.92 11.19C13.89 11.07 13.86 10.92 13.8 10.8C13.68 10.38 13.53 9.96 13.38 9.6C13.32 9.45 13.26 9.3 13.2 9.15C13.11 8.94 13.02 8.73 12.93 8.55C12.9 8.46 12.84 8.4 12.81 8.31C12.78 8.22 12.72 8.13 12.69 8.04C12.66 7.98 12.63 7.92 12.6 7.86L12.33 7.38C12.3 7.32 12.36 7.23 12.42 7.26L14.07 7.71L14.28 7.77L14.52 7.83L14.61 7.86V6.87C14.61 6.39 15 6 15.45 6C15.69 6 15.9 6.09 16.05 6.24C16.2 6.39 16.29 6.6 16.29 6.84V8.28L16.47 8.34C16.47 8.34 16.5 8.34 16.5 8.37C16.53 8.4 16.59 8.46 16.68 8.52C16.74 8.58 16.8 8.64 16.89 8.7C17.04 8.82 17.25 9 17.46 9.18C17.52 9.24 17.58 9.27 17.61 9.33C17.88 9.57 18.18 9.87 18.48 10.2C18.57 10.29 18.63 10.38 18.72 10.47C18.81 10.56 18.87 10.68 18.96 10.77C19.05 10.89 19.17 11.04 19.26 11.16C19.29 11.22 19.35 11.28 19.38 11.37C19.5 11.55 19.59 11.73 19.71 11.91C19.74 12 19.8 12.09 19.83 12.18C19.95 12.42 20.04 12.66 20.07 12.93C20.1 12.99 20.1 13.05 20.1 13.08C20.13 13.14 20.13 13.23 20.13 13.32C20.16 13.59 20.13 13.83 20.1 14.1C20.07 14.22 20.04 14.31 20.01 14.43C19.98 14.52 19.95 14.64 19.89 14.76C19.8 14.97 19.68 15.18 19.56 15.39C19.53 15.45 19.47 15.54 19.41 15.63C19.35 15.72 19.29 15.78 19.26 15.87C19.2 15.96 19.11 16.05 19.05 16.14C18.99 16.23 18.93 16.32 18.84 16.41C18.75 16.53 18.63 16.65 18.54 16.77C18.48 16.83 18.42 16.92 18.33 16.98C18.27 17.04 18.21 17.13 18.12 17.19C18.03 17.28 17.94 17.37 17.85 17.43L17.67 17.58C17.64 17.61 17.61 17.61 17.58 17.61H16.26V19.29H17.91C18.27 19.29 18.63 19.17 18.9 18.93C18.99 18.84 19.41 18.48 19.92 17.94C19.95 17.91 19.95 17.91 19.98 17.91L24.63 16.5C24.72 16.47 24.81 16.53 24.81 16.62V17.61H24.78Z"
+                                        fill="currentColor"></path>
+                                </svg></a></li>
+                        <li><a class="Header_media_link" href="https://twitter.com/HighRunPC" target="_blank"
+                                rel="noopener noreferrer" style="margin-top: 8px;"><svg width="25" height="25"
+                                    viewBox="0 0 29 23" fill="none">
+                                    <path
+                                        d="M28.1042 2.64486C27.0869 3.09642 26.0001 3.39209 24.865 3.53723C26.0322 2.83839 26.921 1.74174 27.3386 0.419307C26.2517 1.06977 25.0524 1.52671 23.7728 1.78474C22.7448 0.682718 21.2724 0 19.6716 0C16.5608 0 14.0551 2.53735 14.0551 5.64452C14.0551 6.09071 14.0926 6.52077 14.1836 6.92932C9.50955 6.70354 5.37621 4.45111 2.59745 1.02677C2.11023 1.87076 1.82647 2.83839 1.82647 3.88128C1.82647 5.83805 2.82768 7.56904 4.32146 8.56892C3.41662 8.55279 2.5332 8.28938 1.78363 7.87545C1.78363 7.89158 1.78363 7.91308 1.78363 7.93996C1.78363 10.6816 3.73251 12.9609 6.2864 13.4823C5.83131 13.606 5.32802 13.6705 4.81403 13.6705C4.45531 13.6705 4.09124 13.649 3.74858 13.5737C4.47673 15.81 6.5434 17.4496 9.00091 17.5034C7.08951 19.0032 4.65877 19.9117 2.03528 19.9117C1.57483 19.9117 1.13044 19.8902 0.691406 19.8365C3.18104 21.4492 6.13113 22.3684 9.31145 22.3684C19.6555 22.3684 25.3094 13.7673 25.3094 6.31111C25.3094 6.06383 25.2987 5.82192 25.288 5.58001C26.4016 4.7844 27.3386 3.78989 28.1042 2.64486Z"
+                                        fill="currentColor"></path>
+                                </svg></a></li>
+
+                        <li><a class="Header_media_link" href="https://www.instagram.com/highrunpokerclub"
+                                target="_blank" rel="noopener noreferrer" style="margin-top: 8px;"> <svg
+                                    xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                                        fill="currentColor"></path>
+                                </svg>
+                            </a>
+                        </li>
+
+                        <li><a class="Header_media_link" id="discord" href="https://discord.gg/7ByHcYcBDr"
+                                target="_blank" rel="noopener noreferrer" style="margin-top: 8px;"><svg width="25"
+                                    height="25" viewBox="0 0 27 21" fill="none">
+                                    <path
+                                        d="M22.0956 2.12313C20.4235 1.33663 18.6092 0.764624 16.7237 0.442871C16.5102 0.871874 16.2256 1.40813 16.0477 1.87288C14.0555 1.58688 12.0633 1.58688 10.1067 1.87288C9.92878 1.40813 9.64418 0.871874 9.39515 0.442871C7.50966 0.764624 5.73089 1.33663 4.02327 2.12313C0.679188 7.27117 -0.245772 12.312 0.216708 17.2455C2.45796 18.9258 4.62805 19.9625 6.79815 20.6418C7.33178 19.9268 7.79426 19.1403 8.22116 18.318C7.43851 18.032 6.69142 17.6745 6.01549 17.2455C6.19337 17.1025 6.37125 16.9595 6.54912 16.8165C10.8182 18.8185 15.443 18.8185 19.6764 16.8165C19.8543 16.9595 20.0322 17.1025 20.2101 17.2455C19.4986 17.6745 18.7515 18.032 18.0044 18.318C18.3957 19.1403 18.8938 19.9268 19.4274 20.6418C21.5619 19.9625 23.7676 18.9615 26.0089 17.2455C26.5069 11.5255 25.0483 6.55617 22.0956 2.12313ZM8.79037 14.2067C7.50966 14.2067 6.4424 12.9912 6.4424 11.5255C6.4424 10.0597 7.47408 8.84418 8.79037 8.84418C10.1067 8.84418 11.1383 10.0597 11.1383 11.5255C11.1028 12.9912 10.0711 14.2067 8.79037 14.2067ZM17.3996 14.2067C16.1189 14.2067 15.0516 12.9912 15.0516 11.5255C15.0516 10.0597 16.0833 8.84418 17.3996 8.84418C18.7159 8.84418 19.7476 10.0597 19.7476 11.5255C19.7476 12.9912 18.7159 14.2067 17.3996 14.2067Z"
+                                        fill="currentColor"></path>
+                                </svg></a></li>
+
+                </div>
+                <!--/.navbar-collapse-->
+            </nav>
+            <!--/.navbar-->
+        </div>
+        <!--/.container-->
+    </div>
+    <!--/.header-->
+
+
+    <section id="hrpc-about" class="page-section">
+        <div class="row">
+            <div class="main-items" data-aos="fade-up">
+                <img id="main-logos" src="img/main-logos.PNG">
+                <div class="button-discord">
+                    <span class="mas-discord"> JOIN DISCORD </span>
+                    <button type="button" name="Hover"><a href="https://discord.gg/7ByHcYcBDr"> JOIN DISCORD
+                        </a></button>
+                </div>
+                    <img id="main-humans" src="img/humans.png">
+            </div>
+        </div>
+    </section>
+    <div class="marquee-container-main">
+        <div class="marquee"
+            style="--play:running; --direction:normal; --duration:410.602s; --delay:0s; --iteration-count:infinite;">
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+        </div>
+    </div>
+
+    <section class="mint-page" id="mint-page">
+        <div class="container">
+            <div class="row">
+                <div class="mint-tm-bg-white-transparent">
+                    <div style="text-align: center;">
+                        <h2>MINT NOW!</h2>
+                        <h1>Wallet Control</h1>
+                        <button id="btnConnectWallet" onclick="connectWallet()" style="padding: 1px; border-radius: 10px;">
+                            <h3 id="txtConnectWalletBtn">Connect Wallet</h3>
+                        </button>
+                    </div>
+                    <div style="text-align: center;">
+                        <h1>Your Wallet balance</h1>
+                        <a id="txtWalletBalance">-</a><a> Ether</a>
+                    </div>
+                    <div style="text-align: center;">
+                        <h1>NFT Count</h1>
+                        <p><a id="txtTotalSupply">-</a>/<a id="txtMaxSupply">-</a></p>
+                    </div>
+                    <div style="text-align: center;">
+                        <h1>Mint Price <br>0.054 Ether+Gas fee</h1>
+                        <button id="btnMintAmount" style="width: 30px;" onclick="btnMintAmount('minus')">-</button><a
+                            id="txtMintAmount" style="margin: 15px;">1</a><button id="btnMintAmount" style="width: 30px; "
+                            onclick="btnMintAmount('plus')">+</button>
+                        <br>
+                        <button id="MintBtn" onclick="mint()" style="margin: 15px; border-radius: 10px;">
+                            <h3 id="txtMintBtn">Connect Wallet</h3>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="marquee-container-main">
+        <div class="marquee"
+            style="--play:running; --direction:normal; --duration:410.602s; --delay:0s; --iteration-count:infinite;">
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+            <span>  MINT NOW🏆️ </span>
+        </div>
+    </div>
+
+    <section id="schedule" class="hrpc-schedule">
+        <div class="container">
+            <h4 class="neon" data-aos="zoom-in">SCHEDULE</h4>
+            <br>
+            <div class="schedule-body">
+                <div class="schedule">
+
+                    <div class="schedule-content" data-aos="fade-up" style="margin-top: 130px;">
+                        <h3>START<br>
+                        </h3>
+
+                        <h2>
+                            Launching the Collection and Start Minting 10,000 NFTs
+                            <br>
+                        </h2>
+                        <p>
+                            - We launch a collection by signing an Ethereum smart contract
+                        </p>
+                    </div>
+
+                    <div class="schedule-content" data-aos="fade-up" style="margin-top: 130px;">
+                        <h3>
+                            Session.1<br>
+                        </h3>
+                        <h2>
+                            COMMUNITY CONNECT (10%)
+                            <br>
+                        </h2>
+                        <p>
+                            - Build a poker community to connect poker players around the world, starting marketing and
+                            promotion
+                        </p>
+                    </div>
+
+                    <div class="schedule-content" data-aos="fade-up" style="margin-top:130px;">
+                        <h3>
+                            Session.2<br>
+                        </h3>
+                        <h2>
+                            HIGH RUN FESTIVAL START (20%)
+                            <br>
+                        </h2>
+                        <p>
+                            - NFT Owners always register for tournaments for free <br>
+                            - With a guarantee of over $50,000, 'HRF Owners Freeroll Tournament' is held regularly
+                        </p>
+                    </div>
+
+                    <div class="schedule-content" data-aos="fade-up" style="margin-top: 130px;">
+                        <h3>
+                            Session.3<br>
+                        </h3>
+                        <h2>
+                            ETHEREUM RANDOM GIVEAWAYS (30%)
+                            <br>
+                        </h2>
+                        <p>
+                            - A total of 25 ETH worth of prizes will be randomly allocated to owners(100 owners) through
+                            lottery
+                            <br>
+                        </p>
+                    </div>
+
+                    <div class="schedule-content" data-aos="fade-up" style="margin-top: 130px;">
+                        <h3>
+                            Session.4<br>
+                        </h3>
+                        <h2>
+                            DISTRIBUTION OF POKER STUDY MATERIALS TO ALL OWNERS (40%)
+                            <br>
+                        </h2>
+                        <p>
+                            - Officially purchase poker study materials and distribute to all Owners
+                            <br>
+                        </p>
+                    </div>
+                    <div class="schedule-content" data-aos="fade-up" style="margin-top: 130px;">
+                        <h3>
+                            Session.5<br>
+                        </h3>
+                        <h2>
+                            OPENED HIGH RUN TEAM PRO (50%)
+                            <br>
+                        </h2>
+                        <p>
+                            - Founding and operation of HRPC Team-pro
+                            <br>
+                        </p>
+                    </div>
+                    <div class="schedule-content" data-aos="fade-up" style="margin-top: 130px;">
+                        <h3>
+                            Session.6<br>
+                        </h3>
+                        <h2>
+                            SUPPORT FOR FAMOUS INTERNATIONAL POKER TOURNAMENTS (60%)
+                            <br>
+                        </h2>
+                        <p>
+                            - An owner who has been active in the community and an owner with excellent poker skills are
+                            recruited to HRPC Team-pro and participate in the international poker tournaments(WSOP)
+                            <br>
+                        </p>
+                    </div>
+                    <div class="schedule-content" data-aos="fade-up" style="margin-top: 130px;">
+                        <h3>
+                            Session.7<br>
+                        </h3>
+                        <h2>
+                            OPENED HIGH RUN STORE (70%)
+                            <br>
+                        </h2>
+                        <p>
+                            - Developing the HIGH RUN brand and opening a HIGH RUN store including various poker
+                            products
+                            and goods
+                            <br>
+                        </p>
+                    </div>
+                    <div class="schedule-content" data-aos="fade-up" style="margin-top: 130px;">
+                        <h3>
+                            Session.8<br>
+                        </h3>
+                        <h2>
+                            LARGE WEB3 POKER COMMUNITY (80%)
+                            <br>
+                        </h2>
+                        <p>
+                            - Developing a poker website that contains everything about poker
+                            <br>
+                        </p>
+                    </div>
+                    <div class="schedule-content" data-aos="fade-up" style="margin-top: 130px;">
+                        <h3>
+                            Session.9<br>
+                        </h3>
+                        <h2>
+                            RARE OWNERS FREEROLL TOURNAMENT (90%)
+                            <br>
+                        </h2>
+                        <p>
+                            - 'HRF Rare Freeroll Tournament' with Rare NFT Owners
+                            <br>
+                        </p>
+                    </div>
+                    <div class="schedule-content" data-aos="fade-up" style="margin-top: 130px;">
+                        <h3>
+                            Session.10<br>
+                        </h3>
+                        <h2>
+                            BRAND PREPARATION IS COMPLETE (100%)
+                            <br>
+                        </h2>
+                        <p>
+                            - Host live tournaments and recruit pro poker players to HRPC team-pro
+                            <br>
+                            <br>
+                            - High Run Poker Club grows into a best poker community
+                            <br>
+                        </p>
+                    </div>
+                    <div class="schedule-content" data-aos="fade-up" style="margin-top: 130px;">
+                        <h3>
+                            <br>
+                            <br>
+                            NEXT... <br>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="summary">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="item">
+                        <div class="icon">
+                            <img src="img/box.png">
+                        </div>
+                        <h4>A total of 10,000 NFTs are deployed on the Ethereum blockchain</h4>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="item">
+                        <div class="icon">
+                            <img src="img/bottle.PNG">
+                        </div>
+                        <h4>Ownership and Commercial Rights</h4>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="item">
+                        <div class="icon">
+                            <img src="img/shark.PNG">
+                        </div>
+                        <h4>Live Tournament Support</h4>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="item">
+                        <div class="icon">
+                            <img src="img/chair.png">
+                        </div>
+                        <h4>Consistent benefits for poker life</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="faq section-padding" id="faq">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-12">
+                    <h3 class="neon">FAQ</h3>
+                    <br>
+                    <div class="accordion" id="accordionExample">
+                        <div class="card">
+                            <div class="card-header" id="headingZero">
+                                <h4 class="mb-0">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse"
+                                        data-target="#collapseZero" aria-expanded="true" aria-controls="collapseZero">
+                                        What is NFT?
+                                    </button>
+                                </h4>
+                            </div>
+
+                            <div id="collapseZero" class="collapse in" aria-labelledby="headingZero"
+                                data-parent="#accordionExample">
+                                <div class="card-body">
+                                    <p>
+                                        NFT (Non-Fungible Token) is a blockchain-based token that is unique and scarce
+                                        as it cannot be duplicated,
+                                        and information is stored in the blockchain forever through IPFS.
+                                        High Run Poker Club NFTs made with Ethereum is special digital collectibles NFT
+                                        for 10,000.
+                                        By contracting NFTs to ERC-721, HRPC creates HRPC-specific tokens to form a
+                                        community of poker players and strengthen solidarity
+                                    </p>
+                                    <div class="line-dec"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header" id="headingOne">
+                                <h4 class="mb-0">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse"
+                                        data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        What are you thinking?
+                                    </button>
+                                </h4>
+                            </div>
+
+                            <div id="collapseOne" class="collapse in" aria-labelledby="headingOne"
+                                data-parent="#accordionExample">
+                                <div class="card-body">
+                                    <p>
+                                        One life, a free life with someone attractive, and the final table.
+                                        It's a combination that all poker players have dreamed of at least once, right?
+                                        We're smarter than anyone, but we're silently walking down a lonely road because we can't find
+                                        people who are similar to us.
+                                        So, Created the High Run Poker Club in the hopes of getting them together!
+                                        If you only love poker, we will be able to communicate across borders at any time
+                                        The poker culture is smart above all, special every moment, and endlessly
+                                        trendy.
+                                        Such poker is a part of our lives.
+                                        We want to build a community that connects and unites poker players in such a
+                                        poker culture.
+                                        If you goes on a poker tour, the local owners will be introduced to a good
+                                        table for you.
+                                        For your special poker life, HRPC will always be with you
+                                    </p>
+                                    <div class="line-dec"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header" id="headingTwo">
+                                <h4 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                        data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        What is High Run festival?
+                                    </button>
+                                </h4>
+                            </div>
+                            <div id="collapseTwo" class="collapse in" aria-labelledby="headingTwo"
+                                data-parent="#accordionExample">
+                                <div class="card-body">
+                                    <p>
+                                        High Run Festival(HRF) is a tournament exclusively for HRPC NFT owners
+                                        <br>
+                                        <br>
+                                        We are planning to hold several freeroll tournaments annually, and prepare
+                                        various prizes.
+                                        Tournaments are open to owners only, And owners can participate for free
+                                        whenever they host a tournament
+                                        <br>
+                                        <br>
+                                        The guaranteed of the main festival is formed according to the volume traded
+                                        <br>
+                                        Main Festival minimum guarantee: $50,000(ETH)
+                                        <br>
+                                        Main Festival maximum guarantee: depending on volume traded
+                                        <br>
+                                        Various prizes at the side festival: International Tournament(WSOP) ticket and
+                                        prize money etc
+                                        <br>
+                                        <br>
+                                        Detailed information will be announced separately on Discord
+
+                                    </p>
+                                    <div class="line-dec"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header" id="headingThree">
+                                <h4 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                        data-target="#collapseThree" aria-expanded="false"
+                                        aria-controls="collapseThree">
+                                        What is International Tournament(WSOP) support?
+                                    </button>
+                                </h4>
+                            </div>
+                            <div id="collapseThree" class="collapse in" aria-labelledby="headingThree"
+                                data-parent="#accordionExample">
+                                <div class="card-body">
+                                    <p>
+                                        Some owners participate in the International Tournament(WSOP) competition with
+                                        developer SABU
+                                        <br><br>
+                                        First, the owners who very active in our community
+                                        <br>
+                                        Second, the owners who winners the HRF
+                                        <br>
+                                        Third, they are all recruited as HRPC Team-Pro to compete in international
+                                        tournaments(WSOP)
+                                        <br><br>
+                                        We will provide owners with total cost of over $100k to participate in the
+                                        international tournament(WSOP)
+                                        <br>
+                                        <br>
+                                        We haven't decided how many owner will go to the International Tournament(WSOP),
+                                        but we will distribute
+                                        the total cost over $100k equally among them
+                                    </p>
+                                    <div class="line-dec"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header" id="headingFour">
+                                <h4 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                        data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                        What are the benefits of HRPC NFT?
+                                    </button>
+                                </h4>
+                            </div>
+                            <div id="collapseFour" class="collapse in" aria-labelledby="headingFour"
+                                data-parent="#accordionExample">
+                                <div class="card-body">
+                                    <p>
+                                        Owning a High Run Poker Club NFT has special value.<br>
+                                        You can continue to participate in tournaments with big prizes that don't
+                                        require buy-in money.
+                                        In addition, you have chance to receive International Tournament(WSOP) tickets,
+                                        poker study materials and you will receive even greater benefits more in the
+                                        future.
+                                        You will get the best benefits as a poker player.<br><br>
+                                        Join Discord for more announcements and benefits
+                                    </p>
+                                    <div class="line-dec"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header" id="headingFive">
+                                <h4 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                        data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                        How about mint?
+                                    </button>
+                                </h4>
+                            </div>
+                            <div id="collapseFive" class="collapse in" aria-labelledby="headingFive"
+                                data-parent="#accordionExample">
+                                <div class="card-body">
+                                    <p>
+                                        Minting can be on the website
+                                        <br><br>
+                                        Public Mint Date: June 26th
+                                        <br>
+                                        Public Mint price: 0.054 ETH + gas fee
+                                        <br>
+                                        <br>
+                                        Detailed information will be announced separately on Discord
+                                    </p>
+                                    <div class="line-dec"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingSix">
+                                <h4 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                        data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                        What is special the Owner of an NFT?
+                                    </button>
+                                </h4>
+                            </div>
+                            <div id="collapseSix" class="collapse in" aria-labelledby="headingSix"
+                                data-parent="#accordionExample">
+                                <div class="card-body">
+                                    <p>
+                                        Form a community with Owners of various poker players around the world.
+                                        You can share your thoughts as a poker player, and wherever you travel, our
+                                        friends are waiting for you
+                                    </p>
+
+                                    <div class="line-dec"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingSeven">
+                                <h4 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                        data-target="#collapseSeven" aria-expanded="false"
+                                        aria-controls="collapseSeven">
+                                        Is the NFT community limited?
+                                    </button>
+                                </h4>
+                            </div>
+                            <div id="collapseSeven" class="collapse in" aria-labelledby="headingSeven"
+                                data-parent="#accordionExample">
+                                <div class="card-body">
+                                    <p>
+                                        We are focused on the poker community.
+                                        Our schedule will go ahead and it's a community built exclusively for poker
+                                        players.
+                                        You will have a new experience as a poker player and enjoy the best poker life.
+                                        Our community supports you
+                                    </p>
+
+                                    <div class="line-dec"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingEight">
+                                <h4 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                        data-target="#collapseEight" aria-expanded="false"
+                                        aria-controls="collapseEight">
+                                        How do I buy HRPC NFTs?
+                                    </button>
+                                </h4>
+                            </div>
+                            <div id="collapseEight" class="collapse in" aria-labelledby="headingEight"
+                                data-parent="#accordionExample">
+                                <div class="card-body">
+                                    <p>
+                                        You absolutely need a Metamask wallet and Ethereum. And you can buy it from the
+                                        website
+                                        <br>
+                                        <br>
+                                        How to buy
+                                        <br>
+                                        <br>
+                                        1. Check the minting date at the website
+                                        <br>
+                                        2. Download the metamask.io extension on your browser
+                                        <br>
+                                        3. Purchase Ethereum from various exchanges, such as Coinbase or Binance
+                                        <br>
+                                        4. Send Ethereum from this exchange to your MetaMask wallet
+                                        <br>
+                                        5. Connect to the metamask wallet, and buy on the minting date at the website
+
+                                        <br>
+                                        <br>
+                                        When everything is sold out, a second purchase is possible at Opensea
+                                        <br>
+                                        <br>
+                                        <br>
+                                        <br>
+                                        <a href="https://metamask.io/" target="_blank" style="color:skyblue;">Metamask
+                                            site</a>
+                                        <br>
+                                        <a href="https://dappgrid.com/metamask-tutorial/" target="_blank"
+                                            style="color:skyblue;">Metamask tutorial</a>
+                                        <br>
+                                        <a href="https://opensea.io/collection/highrunpokerclub"
+                                            target="_blank" style="color:skyblue;">High Run Poker Club at Opensea</a>
+                                    </p>
+
+                                    <div class="line-dec"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hrpc-team" id="team">
+                            <div class="TEAM">
+                                <h2 class="neon">TEAM</h2>
+                                <br>
+                            </div>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-6">
+                                        <div class="our-team">
+                                            <div class="pic">
+                                                <img src="img/sabu.jpg" alt="">
+                                            </div>
+                                            <div class="team-content">
+                                                <h3 class="title">SABU</h3>
+                                                <span class="post">Developer</span>
+                                                <br>
+                                                <p>Without poker and bitcoin, he has no will to live</p>
+                                            </div>
+                                            <ul class="social">
+                                                <li><a href="https://twitter.com/highrunsabu" class="fa fa-twitter"
+                                                        style="font-size: 28px;"></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6">
+                                        <div class="our-team">
+                                            <div class="pic">
+                                                <img src="img/surplus.png" alt="">
+                                            </div>
+                                            <div class="team-contenT">
+                                                <h3 class="title">PACKcy</h3>
+                                                <span class="post">ARTIST</span>
+                                                <br>
+                                                <p>Beautiful life</p>
+                                            </div>
+                                            <ul class="social">
+                                                <li><a href="https://twitter.com/digda77" class="fa fa-twitter"
+                                                        style="font-size: 28px;"></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="bottom-nar">
+                    <a class="bottom-logo" href="#">
+                        <img src="img/linklogo.JPG" alt="" style="width:200px; height:200px; margin-top: 50px;">
+                    </a>
+                    <div class="social-us">
+                        <ul>
+                            <li><a class="Header_media_link"
+                                    href="https://opensea.io/collection/highrunpokerclub" target="_blank"
+                                    rel="noopener noreferrer" style="margin-right: 18px;"><svg width="40" height="40"
+                                        viewBox="0 0 30 30" fill="none">
+                                        <path
+                                            d="M15 0C6.72 0 0 6.72 0 15C0 23.28 6.72 30 15 30C23.28 30 30 23.28 30 15C30 6.72 23.28 0 15 0ZM7.41 15.51L7.47 15.42L11.37 9.33C11.43 9.24 11.55 9.24 11.61 9.36C12.27 10.83 12.81 12.63 12.57 13.77C12.45 14.25 12.15 14.88 11.79 15.45C11.76 15.54 11.7 15.63 11.64 15.69C11.61 15.72 11.58 15.75 11.52 15.75H7.5C7.41 15.72 7.35 15.6 7.41 15.51ZM24.78 17.61C24.78 17.67 24.75 17.7 24.69 17.73C24.39 17.85 23.34 18.33 22.92 18.93C21.81 20.46 20.97 22.65 19.11 22.65H11.31C8.55 22.65 6.3 20.4 6.3 17.61V17.52C6.3 17.46 6.36 17.4 6.42 17.4H10.8C10.89 17.4 10.95 17.49 10.95 17.55C10.92 17.82 10.98 18.12 11.1 18.39C11.37 18.93 11.91 19.23 12.48 19.23H14.64V17.55H12.51C12.39 17.55 12.33 17.43 12.39 17.34C12.42 17.31 12.45 17.28 12.48 17.22C12.69 16.92 12.96 16.5 13.26 15.99C13.47 15.66 13.65 15.27 13.8 14.91C13.83 14.85 13.86 14.79 13.89 14.7C13.92 14.58 13.98 14.46 14.01 14.37C14.04 14.28 14.07 14.19 14.1 14.1C14.16 13.8 14.19 13.47 14.19 13.11C14.19 12.99 14.19 12.84 14.16 12.69C14.16 12.54 14.13 12.39 14.13 12.24C14.13 12.12 14.1 11.97 14.07 11.85C14.04 11.64 14.01 11.46 13.95 11.25L13.92 11.19C13.89 11.07 13.86 10.92 13.8 10.8C13.68 10.38 13.53 9.96 13.38 9.6C13.32 9.45 13.26 9.3 13.2 9.15C13.11 8.94 13.02 8.73 12.93 8.55C12.9 8.46 12.84 8.4 12.81 8.31C12.78 8.22 12.72 8.13 12.69 8.04C12.66 7.98 12.63 7.92 12.6 7.86L12.33 7.38C12.3 7.32 12.36 7.23 12.42 7.26L14.07 7.71L14.28 7.77L14.52 7.83L14.61 7.86V6.87C14.61 6.39 15 6 15.45 6C15.69 6 15.9 6.09 16.05 6.24C16.2 6.39 16.29 6.6 16.29 6.84V8.28L16.47 8.34C16.47 8.34 16.5 8.34 16.5 8.37C16.53 8.4 16.59 8.46 16.68 8.52C16.74 8.58 16.8 8.64 16.89 8.7C17.04 8.82 17.25 9 17.46 9.18C17.52 9.24 17.58 9.27 17.61 9.33C17.88 9.57 18.18 9.87 18.48 10.2C18.57 10.29 18.63 10.38 18.72 10.47C18.81 10.56 18.87 10.68 18.96 10.77C19.05 10.89 19.17 11.04 19.26 11.16C19.29 11.22 19.35 11.28 19.38 11.37C19.5 11.55 19.59 11.73 19.71 11.91C19.74 12 19.8 12.09 19.83 12.18C19.95 12.42 20.04 12.66 20.07 12.93C20.1 12.99 20.1 13.05 20.1 13.08C20.13 13.14 20.13 13.23 20.13 13.32C20.16 13.59 20.13 13.83 20.1 14.1C20.07 14.22 20.04 14.31 20.01 14.43C19.98 14.52 19.95 14.64 19.89 14.76C19.8 14.97 19.68 15.18 19.56 15.39C19.53 15.45 19.47 15.54 19.41 15.63C19.35 15.72 19.29 15.78 19.26 15.87C19.2 15.96 19.11 16.05 19.05 16.14C18.99 16.23 18.93 16.32 18.84 16.41C18.75 16.53 18.63 16.65 18.54 16.77C18.48 16.83 18.42 16.92 18.33 16.98C18.27 17.04 18.21 17.13 18.12 17.19C18.03 17.28 17.94 17.37 17.85 17.43L17.67 17.58C17.64 17.61 17.61 17.61 17.58 17.61H16.26V19.29H17.91C18.27 19.29 18.63 19.17 18.9 18.93C18.99 18.84 19.41 18.48 19.92 17.94C19.95 17.91 19.95 17.91 19.98 17.91L24.63 16.5C24.72 16.47 24.81 16.53 24.81 16.62V17.61H24.78Z"
+                                            fill="currentColor"></path>
+                                    </svg></a></li>
+                            <li><a class="Header_media_link" href="https://twitter.com/HighRunPC" target="_blank"
+                                    rel="noopener noreferrer" style="margin-right: 9px;"><svg width="40" height="40"
+                                        viewBox="0 0 29 23" fill="none">
+                                        <path
+                                            d="M28.1042 2.64486C27.0869 3.09642 26.0001 3.39209 24.865 3.53723C26.0322 2.83839 26.921 1.74174 27.3386 0.419307C26.2517 1.06977 25.0524 1.52671 23.7728 1.78474C22.7448 0.682718 21.2724 0 19.6716 0C16.5608 0 14.0551 2.53735 14.0551 5.64452C14.0551 6.09071 14.0926 6.52077 14.1836 6.92932C9.50955 6.70354 5.37621 4.45111 2.59745 1.02677C2.11023 1.87076 1.82647 2.83839 1.82647 3.88128C1.82647 5.83805 2.82768 7.56904 4.32146 8.56892C3.41662 8.55279 2.5332 8.28938 1.78363 7.87545C1.78363 7.89158 1.78363 7.91308 1.78363 7.93996C1.78363 10.6816 3.73251 12.9609 6.2864 13.4823C5.83131 13.606 5.32802 13.6705 4.81403 13.6705C4.45531 13.6705 4.09124 13.649 3.74858 13.5737C4.47673 15.81 6.5434 17.4496 9.00091 17.5034C7.08951 19.0032 4.65877 19.9117 2.03528 19.9117C1.57483 19.9117 1.13044 19.8902 0.691406 19.8365C3.18104 21.4492 6.13113 22.3684 9.31145 22.3684C19.6555 22.3684 25.3094 13.7673 25.3094 6.31111C25.3094 6.06383 25.2987 5.82192 25.288 5.58001C26.4016 4.7844 27.3386 3.78989 28.1042 2.64486Z"
+                                            fill="currentColor"></path>
+                                    </svg></a></li>
+
+                            <li><a class="Header_media_link" href="https://www.instagram.com/highrunpokerclub"
+                                    target="_blank" rel="noopener noreferrer" style="margin-left: 9px;"> <svg
+                                        xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                                            fill="currentColor"></path>
+                                    </svg>
+                                </a>
+                            </li>
+
+                            <li><a class="Header_media_link" id="discord" href="https://discord.gg/7ByHcYcBDr"
+                                    target="_blank" rel="noopener noreferrer" style="margin-left: 18px;"><svg width="40"
+                                        height="40" viewBox="0 0 27 21" fill="none">
+                                        <path
+                                            d="M22.0956 2.12313C20.4235 1.33663 18.6092 0.764624 16.7237 0.442871C16.5102 0.871874 16.2256 1.40813 16.0477 1.87288C14.0555 1.58688 12.0633 1.58688 10.1067 1.87288C9.92878 1.40813 9.64418 0.871874 9.39515 0.442871C7.50966 0.764624 5.73089 1.33663 4.02327 2.12313C0.679188 7.27117 -0.245772 12.312 0.216708 17.2455C2.45796 18.9258 4.62805 19.9625 6.79815 20.6418C7.33178 19.9268 7.79426 19.1403 8.22116 18.318C7.43851 18.032 6.69142 17.6745 6.01549 17.2455C6.19337 17.1025 6.37125 16.9595 6.54912 16.8165C10.8182 18.8185 15.443 18.8185 19.6764 16.8165C19.8543 16.9595 20.0322 17.1025 20.2101 17.2455C19.4986 17.6745 18.7515 18.032 18.0044 18.318C18.3957 19.1403 18.8938 19.9268 19.4274 20.6418C21.5619 19.9625 23.7676 18.9615 26.0089 17.2455C26.5069 11.5255 25.0483 6.55617 22.0956 2.12313ZM8.79037 14.2067C7.50966 14.2067 6.4424 12.9912 6.4424 11.5255C6.4424 10.0597 7.47408 8.84418 8.79037 8.84418C10.1067 8.84418 11.1383 10.0597 11.1383 11.5255C11.1028 12.9912 10.0711 14.2067 8.79037 14.2067ZM17.3996 14.2067C16.1189 14.2067 15.0516 12.9912 15.0516 11.5255C15.0516 10.0597 16.0833 8.84418 17.3996 8.84418C18.7159 8.84418 19.7476 10.0597 19.7476 11.5255C19.7476 12.9912 18.7159 14.2067 17.3996 14.2067Z"
+                                            fill="currentColor"></path>
+                                    </svg></a></li>
+                        </ul>
+                    </div>
+                    <p>ⓒ 2022 High Run Poker Club</p>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <script>window.jQuery || document.write('<script src="js/js2/jquery-1.11.2.min.js"><\/script>')</script>
+
+    <script src="js/js2/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+
+    <script src="js/mint.js"></script>
+    <script src="js/smartcontract.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // navigation click actions 
+            $('.scroll-link').on('click', function (event) {
+                event.preventDefault();
+                var sectionID = $(this).attr("data-id");
+                scrollToID('#' + sectionID, 750);
+            });
+            // scroll to top action
+            $('.scroll-top').on('click', function (event) {
+                event.preventDefault();
+                $('html, body').animate({ scrollTop: 0 }, 'slow');
+            });
+            // mobile nav toggle
+            $('#nav-toggle').on('click', function (event) {
+                event.preventDefault();
+                $('#main-nav').toggleClass("open");
+            });
+        });
+        // scroll function
+        function scrollToID(id, speed) {
+            var offSet = 50;
+            var targetOffset = $(id).offset().top - offSet;
+            var mainNav = $('#main-nav');
+            $('html,body').animate({ scrollTop: targetOffset }, speed);
+            if (mainNav.hasClass("open")) {
+                mainNav.css("height", "1px").removeClass("in").addClass("collapse");
+                mainNav.removeClass("open");
+            }
+        }
+        if (typeof console === "undefined") {
+            console = {
+                log: function () { }
+            };
+        }
+    </script>
+</body>
+
+</html>

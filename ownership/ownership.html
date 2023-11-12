@@ -1,0 +1,100 @@
+<html>
+<head>
+    <title>Ownership</title>
+    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
+    <script type="text/javascript" src="smartcontract.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+</head>
+<body>
+    <p id="status">
+    <section id="hrpc-ownership" class="page-section">
+        <div class="row">
+            <div class="main-items" data-aos="fade-up">
+                <img id="main-logos" style="width: 300px;" src="img/main-logos.PNG">
+                <div class="button-discord">
+                    <span class="mas-discord"> Marketplace </span>
+                    <button type="button" name="Hover"><a href="https://testnets.opensea.io/collection/suwonsp-1"> Marketplace
+                        </a></button>
+                </div>
+                <div class="schedule-content" data-aos="fade-up" style="margin-top: 50px;">
+                    <a style="font-size: 50px; color: white;">
+                        NFT 소유자만 이 페이지에 접속할 수 있습니다.<br>
+                        연결이 끊길 시 exit.html로 넘어갑니다.
+                    </a>
+                    <img id="main-humans" src="img/humans.png">
+            </div>
+        </div>
+    </section>
+    <script>
+        // 주어진 코드의 변수를 참고하여 수정
+        var web3 = new Web3(window.ethereum);
+        var contract = new web3.eth.Contract(ABI, ADDRESS);
+        var WalletAddress = "";
+
+        async function getOwnedTokens(walletAddress) {
+            let balance = await contract.methods.balanceOf(walletAddress).call();
+            let tokenIds = [];
+
+            for (let i = 0; i < balance; i++) {
+                let tokenId = await contract.methods.tokenOfOwnerByIndex(walletAddress, i).call();
+                tokenIds.push(tokenId);
+            }
+
+            return tokenIds;
+        }
+
+        async function isOwner(walletAddress) {
+            let tokenIds = await getOwnedTokens(walletAddress);
+            
+            for (let tokenId of tokenIds) {
+                let ownerAddress = await contract.methods.ownerOf(tokenId).call();
+                if (ownerAddress === walletAddress) {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        async function checkOwnership() {
+            const accounts = await window.ethereum.request({ method: 'eth_accounts' });
+            if (accounts.length === 0) {
+                document.getElementById('status').innerText = 'Metamask 연결 종료됨';
+                window.location.href = 'exit.html';
+                return;
+            }
+
+            WalletAddress = accounts[0];
+            let tokenIds = await getOwnedTokens(WalletAddress);
+            if (tokenIds.length === 0) {
+                document.getElementById('status').innerText = 'Metamask 연결 종료됨';
+                window.location.href = 'exit.html';
+                return;
+            }
+        }
+
+        if (window.ethereum) {
+            checkOwnership();
+
+            window.ethereum.on('accountsChanged', async function (accounts) {
+                if (accounts.length === 0) {
+                    document.getElementById('status').innerText = 'Metamask 연결 종료됨';
+                    window.location.href = 'exit.html';
+                } else {
+                    WalletAddress = accounts[0];
+                    let tokenIds = await getOwnedTokens(WalletAddress);
+                    if (tokenIds.length === 0) {
+                        document.getElementById('status').innerText = 'Metamask 연결 종료됨';
+                        window.location.href = 'exit.html';
+                    }
+                }
+            });
+        } else {
+            alert("You need Metamask first!");
+        }
+    </script>
+</body>
+<link rel="stylesheet" href="css/hrpc.css">
+<link rel="stylesheet" href="css/hrpc2.scss">
+
+</html>

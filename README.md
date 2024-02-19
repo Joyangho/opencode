@@ -1,3 +1,6 @@
+# 체인
+- goerliETH
+- 0.0001ETH
 # NFT Mint & Ownership
 - Ownership verify 버튼을 누르면 NFT 소유권 증명 작업 시작 -> 증명이 되면 ownership.html로 이동
 - ownership.html에서 메타마스크 연결이 끊기거나 url로 접속할 시 접속 차단하고 exit.html로 이동

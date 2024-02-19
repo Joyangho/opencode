@@ -1,3 +1,9 @@
+# OpenCode
+- Smartcontract = 솔리디티 코드
+- Web = HTML + CSS INDEX.html 웹 구현
+- mint = Mint 하기위한 JS 코드와 ABI+contract address를 연동한 js 코드
+- ownership = NFT Verify JS 코드
+
 # 체인
 - goerliETH
 - 0.0001ETH

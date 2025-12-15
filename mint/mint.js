@@ -79,38 +79,45 @@ function btnMintAmount(type) {
 }
 
 async function mint() {
-  if (window.ethereum) {
-    await window.ethereum.send("eth_requestAccounts");
-    window.web3 = new Web3(window.ethereum);
-    contract = new web3.eth.Contract(ABI, ADDRESS);
-
-    if (isConnected) {
-
-      //alert("NFT sales will open in June 26th");
-
-      if (contract) {
-        if (web3.utils.fromWei(WalletBalance) < 0.054) {
-          alert("You need more Ethereum(over 0.054ETH + Gas fee)");
-        } else {
-          var mintAmount = document.getElementById("txtMintAmount").innerHTML;
-          var transaction = await contract.methods
-            .HighRunPCMint(mintAmount)
-            .send({ from: WalletAddress, value: 0.054 * mintAmount * 10 ** 18 })
-            .on("error", function (error) {
-              alert("Mint error!");
-              console.log("Mint - Error : " + error);
-            })
-            .then(function (receipt) {
-              alert("Congrats! NFT purchase is successful! Check your wallet!");
-              console.log("Mint - success : " + receipt);
-            });
-          console.log("Mint - transaction : " + transaction);
-        }
-      }
-    } else {
-      connectWallet();
+  if (!isConnected || !contract || !signer) {
+    showModal('Please connect your wallet first.', 'warning');
+    return;
+  }
+  try {
+    const minRequired = ethers.utils.parseEther('0.054');
+    const liveBal = await provider.getBalance(walletAddress);
+    if (liveBal.lt(minRequired)) {
+      showModal('Insufficient minimum ETH. At least 0.054 ETH is required in your wallet.', 'warning');
+      return;
     }
-  } else {
-    alert("You will need to extend your Metamask wallet using Google Chrome or Brave browser!");
+  } catch (e) {
+    console.error('Balance check failed', e);
+    showModal('Failed to check your balance. Please try again.', 'error');
+    return;
+  }
+  try {
+    const input = document.getElementById('mintAmount');
+    const amount = Math.min(MAX_MINT_AMOUNT, Math.max(MIN_MINT_AMOUNT, parseInt(input?.value || '1')));
+    const costWei = ethers.BigNumber.from(currentMintPrice);
+    const value = costWei.mul(amount);
+    showLoading('Minting...');
+    const tx = await (contract.HighRunPCMint
+      ? contract.HighRunPCMint(amount, { value })
+      : contract.WhiteAndTrans(walletAddress, amount, { value })
+    );
+    await tx.wait();
+    showModal('Mint success!', 'success');
+    await loadContractData();
+    await refreshHrpcCount();
+    if (provider && walletAddress) {
+      const bal = await provider.getBalance(walletAddress);
+      walletBalance = bal.toString();
+      updateWalletUI();
+    }
+  } catch (e) {
+    console.error('Mint failed', e);
+    showModal('Mint failed. Please try again.', 'error');
+  } finally {
+    hideLoading();
   }
 }
